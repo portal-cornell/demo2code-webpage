@@ -1,7 +1,6 @@
 ## Webpage Template
 
-This webpage template was made by the [colorful folks](https://github.com/richzhang/webpage-template),
-and adapted to be mobile responsive by [Jason Zhang](https://github.com/jasonyzhang/webpage-template).
+This template was originally made by [Phillip Isola](http://web.mit.edu/phillipi/) and [Richard Zhang](http://richzhang.github.io/) for a [colorful project](http://richzhang.github.io/colorization/), and inherits the modifications made by [Jason Zhang](https://github.com/jasonyzhang/webpage-template).
 See how the webpage looks [here](https://elliottwu.com/webpage-template/).
 
 To use this template, clone the repo:
