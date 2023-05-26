@@ -5,7 +5,7 @@ See how the webpage looks [here](https://elliottwu.com/webpage-template/).
 
 To use this template, clone the repo:
 ```
-git clone https://github.com/elliottwu/webpage-template
+git clone https://github.com/portal-cornell/demo2code-webpage
 ```
 
 Copy the contents into a `gh-pages` branch of a GitHub repo. That will automatically
