@@ -9,7 +9,7 @@
   	<title>Demo2Code</title>
       <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/
           if you update and want to force Facebook to re-scrape. -->
-  	<meta property="og:image" content="Path to my teaser.jpg"/>
+  	<meta property="og:image" content="./resources/method_overview.png"/>
   	<meta property="og:title" content="Creative and Descriptive Paper Title." />
   	<meta property="og:description" content="Paper description." />
     <!-- Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?
@@ -47,22 +47,22 @@
     <br><br>
 
     <div class="author">
-        <a href="https://en.wikipedia.org/wiki/James_J._Gibson">First Author</a><sup>1</sup>
+        <a href="https://lunay0yuki.github.io/">Huaxiaoyue Wang</a><sup>1</sup>
     </div>
     <div class="author">
-        <a href="https://en.wikipedia.org/wiki/James_J._Gibson">Second Author</a><sup>2</sup>
+        <a href="https://www.researchgate.net/profile/Gonzalo-Gonzalez-Pumariega">Gonzalo Gonzalez-Pumariega</a><sup>1</sup>
     </div>
     <div class="author">
-        <a href="https://en.wikipedia.org/wiki/James_J._Gibson">Third Author</a><sup>3</sup>
+        <a href="https://yash-s20.github.io/">Yash Sharma</a><sup>1</sup>
     </div>
     <div class="author">
-        <a href="https://en.wikipedia.org/wiki/James_J._Gibson">Fourth Author</a><sup>4</sup>
+        <a href="https://www.sanjibanchoudhury.com/">Sanjiban Choudhury</a><sup>1</sup>
     </div>
 
 
     <br><br>
 
-    <!-- <div class="affiliation"><sup>1&nbsp;</sup>Affiliation Number One</div> -->
+    <div class="affiliation"><sup>1&nbsp;</sup>Cornell University</div>
     <!-- <div class="affiliation"><sup>2&nbsp;</sup>Affiliation Number Two</div>
     <div class="affiliation"><sup>3&nbsp;</sup>Affiliation Number Three</div>
     <div class="affiliation"><sup>4&nbsp;</sup>Affiliation Number Four</div> -->
@@ -70,16 +70,16 @@
     <br><br>
 
     <div class="links"><a href="[TODO] arviv link">[Paper]</a></div>
-    <div class="links"><a href="[TODO] robotouille video?">[Video]</a></div>
-    <div class="links"><a href="https://github.com/portal-cornell/llm-to-code">[Code]</a></div>
 
     <br><br>
 
-    <img style="width: 80%;" src="./resources/teaser.jpg" alt="Teaser figure."/>
-    <br>
-    <p style="width: 80%;">
-        This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful project</a>, and inherits the modifications made by <a href="https://github.com/jasonyzhang/webpage-template">Jason Zhang</a>.
-        The code can be found <a href="https://github.com/elliottwu/webpage-template">here</a>.
+    <img style="width: 100%;" src="./resources/method_overview.png" alt="Method Overview."/>
+    <br><br>
+    <p style="width:80%;">
+        <center>
+            <span class='ms'>Demo2Code</span> converts language and demonstrations to task code that the robot can execute. 
+            The framework <b>recursively summarizes</b> both down to a task specification, then <b>recursively expands</b> the specification to an executable task code.
+        </center>
     </p>
 
     <br><br>
@@ -103,7 +103,7 @@
         simulate diverse cooking tasks in a kitchen environment.
     </p>
 
-    <br><br>
+    <!-- <br><br>
     <hr>
 
     <h1>Video</h1>
@@ -111,45 +111,113 @@
         <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameBorder="0"
                 allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                 allowfullscreen></iframe>
-    </div>
+    </div> -->
 
     <br><br>
     <hr>
 
     <h1>Method Overview</h1>
-    <img style="width: 80%;" src="./resources/method.jpg"
-         alt="Method overview figure"/>
-    <br>
-    <a class="links" href="https://github.com/elliottwu/webpage-template">[Code]</a>
+
+    <p style="width: 90%;">
+        <center><span class='ms'>Demo2Code</span> generates robot task code from language instructions and demonstrations through a two-stage process.</center>
+    </p>
+    <h3 style="margin-left: 10%; margin-right: 10%;">(1) Recursive Summarization: summarize demonstrations to task specifications</h3>
+    <img style="width: 80%;" src="./resources/stage1.png"
+         alt="Figure showing recursive summarization of input demonstrations to a compact specification. (Stage 1)"/>
+    <br><br>
+    <p style="width: 70%;">
+        In stage 1, the LLM first summarizes each demonstration individually. 
+        Once all demonstrations are sufficiently summarized, they are then jointly summarized in the final step as the task specification.
+    </p>
+    <p style="width: 70%;">
+        In the example, the LLM is asked to perform some intermediate reasoning (e.g. identifying the order of the high-level action) before outputting the specification (starting at "Make a burger...")
+    </p>
+
+    <h3 style="margin-left: 10%; margin-right: 10%;">(2) Recursive expansion: synthesize code from the task specification</h3>
+    <img style="width: 80%;" src="./resources/stage2.png"
+         alt="Figure showing recursive expansion of the high-level code generated from the specification, where new functions are defined by the LLM along the way. (Stage 2)"/>
+    <br><br>
+    <p style="width: 70%;">
+        In stage 2, given a task specification, the LLM first generates high-level task code that can call undefined functions. 
+        It then recursively expands each undefined function until eventually terminating with only calls to the existing APIs imported from the robot's low-level action and perception libraries. 
+    </p>
+    <p style="width: 70%;">
+        In the example, the function <span style="font-family: monospace; color:blue; font-weight: bold;">cook_obj_at_loc</span> is an undefined functions that the LLM calls when it first generates the high-level task code. 
+        In contrast, the function <span style="font-family: monospace; color:#FF7F50; font-weight: bold;">move_then_pick</span> is a function that only uses existing available APIs.
+    </p>
 
     <br><br>
     <hr>
 
     <h1>Results</h1>
-    <img style="width: 80%;" src="./resources/results.jpg"
-         alt="Results figure"/>
+    <p style="width: 80%;">
+        <span class='ms'>Demo2Code</span> is compared against three other methods.
+    </p>
+    <ul style="margin-left: 10%; margin-right: 10%; text-align: left;">
+        <li><span class="ms" style="font-weight:bold;">Lang2Code</span>: a prior work <a href="https://arxiv.org/abs/2209.07753">CodeAsPolicies</a>, which generates code only from language instruction</li>
+        <li><span class="ms" style="font-weight:bold;">DemoNoLang2Code</span>: an ablation method, which generates code from demonstrations only without a language instruction</li>
+        <li><span class="ms" style="font-weight:bold;">Spec2Code</span>: an oracle method, which generates code detailed specifications on how to complete a task</li>
+    </ul>
 
+    <h3 style="margin-left: 10%; margin-right: 10%;">(1) <span class="ms">Robotouille</span>, Cooking Task Simulator</h3>
+    <img style="width: 80%;" src="./resources/robotouille_result.png"
+         alt="Robotouille result figure"/>
     <br><br>
+    <p style="width: 70%;">
+        <b><span class="ms">Demo2Code</span> can infer different users' preferences. </b>
+    </p>
+    <p style="width: 70%;">
+        In this <span class="ms">Robotouille</span> example, <span class="ms">Demo2Code</span> is able to summarize demonstrations and identify different users' preferences on how to make a burger (e.g. whether to include lettuce or cheese). 
+        Then, it generates personalized burger cooking code to use the user's preferred ingredients.
+    </p>
+
+    <h3 style="margin-left: 10%; margin-right: 10%;">(2) Tabletop Manipulation Simulator</h3>
+    <img style="width: 80%;" src="./resources/tabletop_result.png"
+         alt="Tabletop result figure"/>
+    <br><br>
+    <p style="width: 70%;">
+        <b><span class="ms">Demo2Code</span> can ground ambiguous language instruction. </b>
+    </p>
+    <p style="width: 70%;">
+        In this tabletop example, <span class="ms">Demo2Code</span> successfully extracts specificity in tabletop tasks. 
+        Although the language instruction just ambiguously says "next to", it correctly infers from the goal is "left of". 
+        In contrast,  <span class="ms">Lang2Code</span> lacks demonstrations and randomly chooses a spatial location while <span class="ms">DemoNoLang2Code</span> lacks context in what object to move.
+    </p>
+    
+    <h3 style="margin-left: 10%; margin-right: 10%;">(3) <a href="https://epic-kitchens.github.io/2023">EPIC KITCHENS</a> Dataset</h3>
+    <img style="width: 80%;" src="./resources/epick_result.png"
+         alt="EPIC KITCHENS result figure"/>
+    <br><br>
+    <p style="width: 70%;">
+        <b><span class="ms">Demo2Code</span> can apply to real-world video demonstrations and identify different users' styles. </b>
+    </p>
+    <p style="width: 70%;">
+        In this <a href="https://epic-kitchens.github.io/2023">EPIC KITCHENS</a> example, <span class="ms">Demo2Code</span> correctly summarizes different styles of users washing dishes from demonstration and generates personalized dish washing code. 
+        Specifically, for one user, it extracts that this user prefers to scrub all the dishes before rinsing, while it identifies that another user prefers to scrub and rinse each dish individually.
+    </p>
+    <br><br>
+
     <hr>
 
     <h1>Paper</h1>
     <div class="paper-thumbnail">
         <a href="https://arxiv.org">
-            <img class="layered-paper-big" width="100%" src="./resources/paper.jpg" alt="Paper thumbnail"/>
+            <img class="layered-paper-big" width="100%" src="./resources/paper_overview.png" alt="Paper thumbnail"/>
         </a>
     </div>
     <div class="paper-info">
         <h3>Demo2Code: From Summarizing Demonstrations
             to Synthesizing Code via Extended Chain-of-Thought</h3>
-        <p>[TODO] Anonymous Author(s)</p>
+        <p>Huaxiaoyue Wang, Gonzalo Gonzalez-Pumariega, Yash Sharma, Sanjiban Choudhury</p>
         <p>Under review (2023)</p>
-        <pre><code></code></pre>
+        <!-- <pre><code>TODO: add bibtex citation here</code></pre> --> 
     </div>
 
     <br><br>
     <hr>
 
     <h1>Acknowledgements</h1>
+    <p style="width: 80%;">We sincerely thank Nicole Thean (@nicolethean) for creating our art assets for <span class="ms">Robotouille</span>!</p>
     <p style="width: 80%;">
         This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful project</a>, and inherits the modifications made by <a href="https://github.com/jasonyzhang/webpage-template">Jason Zhang</a>.
         The code can be found <a href="https://github.com/elliottwu/webpage-template">here</a>.
