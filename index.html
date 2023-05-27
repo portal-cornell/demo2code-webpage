@@ -10,17 +10,17 @@
       <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/
           if you update and want to force Facebook to re-scrape. -->
   	<meta property="og:image" content="./resources/method_overview.png"/>
-  	<meta property="og:title" content="Creative and Descriptive Paper Title." />
-  	<meta property="og:description" content="Paper description." />
+  	<meta property="og:title" content="Demo2Code" />
+  	<meta property="og:description" content="Demo2Code: From Summarizing Demonstrations to Synthesizing Code via Extended Chain-of-Thought," />
     <!-- Twitter automatically scrapes this. Go to https://cards-dev.twitter.com/validator?
         if you update and want to force Twitter to re-scrape. -->
     <meta property="twitter:card"          content="summary" />
-    <meta property="twitter:title"         content="Creative and Descriptive Paper Title." />
-    <meta property="twitter:description"   content="Paper description." />
-    <meta property="twitter:image"         content="Path to my teaser.jpg" />
+    <meta property="twitter:title"         content="Demo2Code" />
+    <meta property="twitter:description"   content="Demo2Code: From Summarizing Demonstrations to Synthesizing Code via Extended Chain-of-Thought" />
+    <meta property="twitter:image"         content="./resources/method_overview.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Add your Google Analytics tag here -->
+    <!-- Add your Google Analytics tag here -->From
     <!-- <script async
             src="https://www.googletagmanager.com/gtag/js?id=UA-97476543-1"></script>
     <script>
@@ -142,7 +142,7 @@
         It then recursively expands each undefined function until eventually terminating with only calls to the existing APIs imported from the robot's low-level action and perception libraries. 
     </p>
     <p style="width: 70%;">
-        In the example, the function <span style="font-family: monospace; color:blue; font-weight: bold;">cook_obj_at_loc</span> is an undefined functions that the LLM calls when it first generates the high-level task code. 
+        In the example, the function <span style="font-family: monospace; color:blue; font-weight: bold;">cook_obj_at_loc</span> is an initially undefined function that the LLM calls when it first generates the high-level task code. 
         In contrast, the function <span style="font-family: monospace; color:#FF7F50; font-weight: bold;">move_then_pick</span> is a function that only uses existing available APIs.
     </p>
 
