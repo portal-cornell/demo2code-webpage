@@ -36,6 +36,12 @@
 
 <body>
 <div class="container"> 
+    <div>
+        <a href="https://portal.cs.cornell.edu/"><img style="width: 7.5%; position: fixed; top: 0; left: 0.1%;" src="./resources/portal_light.png"
+         alt="Portal Group Logo"/></a>
+        
+    </div>
+
     <div class="title">
         Demo2Code: From Summarizing Demonstrations to Synthesizing Code via Extended Chain-of-Thought
     </div>
@@ -50,7 +56,7 @@
         <a href="https://lunay0yuki.github.io/">Huaxiaoyue Wang</a><sup>1</sup>
     </div>
     <div class="author">
-        <a href="https://www.researchgate.net/profile/Gonzalo-Gonzalez-Pumariega">Gonzalo Gonzalez-Pumariega</a><sup>1</sup>
+        <a href="https://github.com/chalo2000">Gonzalo Gonzalez-Pumariega</a><sup>1</sup>
     </div>
     <div class="author">
         <a href="https://yash-s20.github.io/">Yash Sharma</a><sup>1</sup>
@@ -150,7 +156,30 @@
     <br><br>
     <hr>
 
-    <h1>Results</h1>
+    <h1>Qualitative Result</h1>
+    <p style="width: 80%;">
+        <span class='ms'>Demo2Code</span> can successfully complete various cooking task while accomadting to a user's preference.
+    </p>
+    <div class="grid-container">
+        <div class="grid-item">Code Execution Result</div>
+        <div class="grid-item"><img src="./resources/basic_burger.gif"
+         alt="Gif showing the robot making a burger with a patty and a lettuce in Robotouille simulator"/></div>
+        <div class="grid-item"><img src="./resources/basic_burger_plus_tomato.gif"
+         alt="Gif showing the robot making a burger with a patty and a lettuce and a tomato in Robotouille simulator"/></div>
+        <div class="grid-item"><img src="./resources/cheese_burger.gif"
+         alt="Gif showing the robot making a burger with a patty and cheese in Robotouille simulator"/></div>
+        <div class="grid-item">Language Instruction</div>
+        <div class="grid-item" style="grid-column: 2/5; grid-row: 2">"Make a burger"</div>
+        <div class="grid-item">Preference Shown In Demos</div>
+        <div class="grid-item">With a patty and a lettuce</div>
+        <div class="grid-item">With a patty and a lettuce <b>and a tomato</b></div>
+        <div class="grid-item">With a patty and <b>cheese</b></div>
+    </div>
+
+    <br><br>
+    <hr>
+
+    <h1>Detailed Results</h1>
     <p style="width: 80%;">
         <span class='ms'>Demo2Code</span> is compared against three other methods.
     </p>
@@ -218,7 +247,7 @@
     <hr>
 
     <h1>Acknowledgements</h1>
-    <p style="width: 80%;">We sincerely thank Nicole Thean (@nicolethean) for creating our art assets for <span class="ms">Robotouille</span>!</p>
+    <p style="width: 80%;">We sincerely thank <a href="https://github.com/nicolethean">Nicole Thean (@nicolethean)</a> for creating our art assets for <span class="ms">Robotouille</span>!</p>
     <p style="width: 80%;">
         This template was originally made by <a href="http://web.mit.edu/phillipi/">Phillip Isola</a> and <a href="http://richzhang.github.io/">Richard Zhang</a> for a <a href="http://richzhang.github.io/colorization/">colorful project</a>, and inherits the modifications made by <a href="https://github.com/jasonyzhang/webpage-template">Jason Zhang</a>.
         The code can be found <a href="https://github.com/elliottwu/webpage-template">here</a>.
